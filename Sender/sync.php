@@ -9,6 +9,7 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_HEADER, [
     'Content-Type: application/json',
 ]);
+
 include ("index.php");
 $sql = "SELECT matricula as username,email,nombre as name FROM usuarios" ;
 $st = $pdo->prepare($sql);
