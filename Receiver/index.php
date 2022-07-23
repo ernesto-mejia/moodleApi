@@ -5,7 +5,7 @@ $usuario = "root";
 $password = "";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=prueba", $usuario, $password);      
+    $pdo = new PDO("mysql:host=$host;dbname=registro", $usuario, $password);      
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       echo "Conexión realizada Satisfactoriamente";
     }
@@ -15,7 +15,7 @@ catch(PDOException $e)
     echo "La conexión ha fallado: " . $e->getMessage();
     }
 
-$sql = "SELECT matricula,nombre,email FROM usuarios";
+    $sql = "SELECT matricula as username, auth, nombre as firstname,apellido as lastname, email, idnumber, lang, calendartype   FROM usuarios" ;
 
 $st = $pdo->prepare($sql);
 $st->execute();
